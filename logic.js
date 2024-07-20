@@ -1,6 +1,6 @@
 function getComputerChoice() {
-    let choice = Math.random()
-    return choice
+    let choice = Math.random();
+    return choice;
 }
 
 function getHumanChoice() {
@@ -16,29 +16,50 @@ function getHumanChoice() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    if ((humanChoice <= 0.33) && (computerChoice <= 0.33)) 
-        console.log('Tie! Rock does not beat rock!');
-    if ((humanChoice <= 0.33) && (0.33 < computerChoice < 0.67)) 
-        console.log('Computer wins! Paper beats rock!');
-    if ((humanChoice <= 0.33) && (0.66 < computerChoice <= 1)) 
-        console.log('Human wins! Rock beats scissors');
+    let rez = 0;
 
-    if ((0.33 < humanChoice <= 0.66) && (computerChoice <= 0.33)) 
+    if ((humanChoice <= 0.33) && (computerChoice <= 0.33) && rez == 0) {
+        console.log('Tie! Rock does not beat rock!');
+        rez += 1;
+    }
+    if ((humanChoice <= 0.33) && (0.33 < computerChoice < 0.67) && rez == 0) {
+        console.log('Computer wins! Paper beats rock!');
+        rez += 1
+    }
+    if ((humanChoice <= 0.33) && (0.66 < computerChoice <= 1) && rez == 0) {
+        console.log('Human wins! Rock beats scissors');
+        rez += 1;
+    }
+
+    if ((0.33 < humanChoice <= 0.66) && (computerChoice <= 0.33) && rez == 0) {
         console.log('Human wins! Paper beats rock!');
-    if ((0.33 < humanChoice <= 0.66) && (0.33 < computerChoice < 0.67)) 
+        rez += 1;
+    }
+    if ((0.33 < humanChoice <= 0.66) && (0.33 < computerChoice < 0.67) && rez == 0) {
         console.log('Tie! Paper does not beat paper!');
-    if ((0.33 < humanChoice <= 0.66) && (0.66 < computerChoice <= 1)) 
+        rez += 1;
+    }
+    if ((0.33 < humanChoice <= 0.66) && (0.66 < computerChoice <= 1) && rez == 0) {
         console.log('Computer wins! Scissors beat paper!');
+        rez += 1;
+    }
     
-    if ((0.66 < humanChoice <= 1) && (computerChoice <= 0.33)) 
+    if ((0.66 < humanChoice <= 1) && (computerChoice <= 0.33) && rez == 0) {
         console.log('Computer wins! Rock beats scissors!');
-    if ((0.66 < humanChoice <= 1) && (0.33 < computerChoice < 0.67)) 
+        rez += 1;
+    }
+    if ((0.66 < humanChoice <= 1) && (0.33 < computerChoice < 0.67) && rez == 0) {
         console.log('Human wins! Scissors beat paper');
-    if ((0.66 < humanChoice <= 1) && (0.66 < computerChoice <= 1)) 
+        rez += 1;
+    }
+    if ((0.66 < humanChoice <= 1) && (0.66 < computerChoice <= 1) && rez == 0) {
         console.log('Tie! Scissors do not beat scissors!');
+        rez += 1;
+    }
 
 }
 
-let humanChoice = getHumanChoice();
-let computerChoice = getComputerChoice();
+let humanSelection = getHumanChoice();
+let computerSelection = getComputerChoice();
 let humanScore = computerScore = 0;
+
