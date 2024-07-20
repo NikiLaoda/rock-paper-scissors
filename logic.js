@@ -32,7 +32,7 @@ function humanPlay() {
     return play;
 }
 
-function playGame() {
+function playRound() {
     let computerSelection = computerPlay();
     let humanSelection = humanPlay();
 
@@ -47,13 +47,15 @@ function playGame() {
       ) {
         playerScore++
         roundWinner = 'player'
-      }
-      if (
+    }
+    if (
         (computerSelection === 'ROCK' && playerSelection === 'SCISSORS') ||
         (computerSelection === 'SCISSORS' && playerSelection === 'PAPER') ||
         (computerSelection === 'PAPER' && playerSelection === 'ROCK')
       ) {
         computerScore++
         roundWinner = 'computer';
-      }
+    }
+    
+    
 }
