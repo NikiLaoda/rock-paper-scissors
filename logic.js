@@ -15,51 +15,62 @@ function getHumanChoice() {
     }
 }
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice, humanScore, computerScore) {
     let rez = 0;
 
     if ((humanChoice <= 0.33) && (computerChoice <= 0.33) && rez == 0) {
         console.log('Tie! Rock does not beat rock!');
-        rez += 1;
+        rez++;
     }
     if ((humanChoice <= 0.33) && (0.33 < computerChoice < 0.67) && rez == 0) {
         console.log('Computer wins! Paper beats rock!');
-        rez += 1
+        rez++;
+        computerScore++;
     }
     if ((humanChoice <= 0.33) && (0.66 < computerChoice <= 1) && rez == 0) {
         console.log('Human wins! Rock beats scissors');
-        rez += 1;
+        rez++;
+        humanScore++;
     }
 
     if ((0.33 < humanChoice <= 0.66) && (computerChoice <= 0.33) && rez == 0) {
         console.log('Human wins! Paper beats rock!');
-        rez += 1;
+        rez++;
+        humanScore++;
     }
     if ((0.33 < humanChoice <= 0.66) && (0.33 < computerChoice < 0.67) && rez == 0) {
         console.log('Tie! Paper does not beat paper!');
-        rez += 1;
+        rez++;
     }
     if ((0.33 < humanChoice <= 0.66) && (0.66 < computerChoice <= 1) && rez == 0) {
         console.log('Computer wins! Scissors beat paper!');
-        rez += 1;
+        rez++;
+        computerScore++;
     }
     
     if ((0.66 < humanChoice <= 1) && (computerChoice <= 0.33) && rez == 0) {
         console.log('Computer wins! Rock beats scissors!');
-        rez += 1;
+        rez++;
+        computerScore++;
     }
     if ((0.66 < humanChoice <= 1) && (0.33 < computerChoice < 0.67) && rez == 0) {
         console.log('Human wins! Scissors beat paper');
-        rez += 1;
+        rez++;
+        humanScore++;
     }
     if ((0.66 < humanChoice <= 1) && (0.66 < computerChoice <= 1) && rez == 0) {
         console.log('Tie! Scissors do not beat scissors!');
-        rez += 1;
+        rez++;
     }
 
 }
 
-let humanSelection = getHumanChoice();
-let computerSelection = getComputerChoice();
-let humanScore = computerScore = 0;
+function playGame() {
+    let humanSelection = getHumanChoice();
+    let computerSelection = getComputerChoice();
+    let humanScore = computerScore = 0;
+
+    playRound(humanSelection, computerSelection);
+}
+
 
